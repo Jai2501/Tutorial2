@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+}
+
+.App-logo-clockwise {
+  height: 40vmin;
+  pointer-events: none;
+  animation: App-logo-spin-clockwise infinite 20s linear;
+}
+
+.App-logo-anti-clockwise {
+  height: 40vmin;
+  pointer-events: none;
+  animation: App-logo-spin-anti-clockwise infinite 20s linear;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin-anti-clockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.spin-btn {
+  background-color: #fff;
+  color: #000;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 6px 6px rgba(0, 0, 0, 0.7);
+  padding: 14px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease;
+}
+
+.spin-btn:active {
+  transform: scale(0.99);
+  transition: box-shadow 0.25s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.3);
+}
