@@ -562,41 +562,6 @@ networks:
 
 ## Node.js Application
 
-### The docker-compose.yml file
-
-The docker-compose.yml file is created in the root of your project. This file defines how Docker containers should behave when ran together.
-
-```
-# Specify the version of the Docker Compose.
-version: "3.9"
-
-# Define the services and applications that make up your application.
-services:
-  demo-app:
-    build: ./demo-app # Path to the directory containing the Dockerfile for building the demo-app image.
-    ports:
-      - 3000:3000 # Maps port 3000 on the host to port 3000 in the container, making the app accessible on the host.
-    volumes:
-      - ./demo-app:/app # Mounts the host directory './demo-app' to '/app' in the container.
-      - /app/node_modules # Anonymous Volume
-    networks:
-      - demo-network # Connects the demo-app to the 'demo-network' network.
-
-  demo-service:
-    build: ./demo-service # Path to the directory containing the Dockerfile for the demo-service.
-    ports:
-      - 3001:3001 # Maps port 3001 on the host to port 3001 in the container.
-    volumes:
-      - ./demo-service:/app # Mounts the host directory './demo-service' to '/app' in the container.
-      - /app/node_modules # Anonymous Volume
-    networks:
-      - demo-network # Connects the demo-service to the 'demo-network' network.
-
-networks:
-  demo-network: # Defines a network named 'demo-network'.
-    driver: bridge # Uses the bridge driver for the network, which is the default and most common network type in Docker.
-```
-
 ### Building the Images
 
 Using the following command, all the services (and networks, volumes) are built, without requiring to invoke and run commands one by one:
