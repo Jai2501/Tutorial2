@@ -13,16 +13,6 @@ services:
     networks:
       - demo-network # Connects the demo-app to the 'demo-network' network.
 
-  demo-service:
-    build: ./demo-service # Path to the directory containing the Dockerfile for the demo-service.
-    ports:
-      - 3001:3001 # Maps port 3001 on the host to port 3001 in the container.
-    volumes: 
-      - ./demo-service:/app # Mounts the host directory './demo-service' to '/app' in the container.
-      - /app/node_modules # Anonymous Volume
-    networks:
-      - demo-network # Connects the demo-service to the 'demo-network' network.
-
 networks:
   demo-network: # Defines a network named 'demo-network'.
     driver: bridge # Uses the bridge driver for the network, which is the default and most common network type in Docker.

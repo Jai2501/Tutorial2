@@ -6,20 +6,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  function toggleAnimation() {
-    var logo = document.querySelector(".App-logo-clockwise");
-    var isLogoRotatingClockwise = logo !== null;
-
-    if (isLogoRotatingClockwise) {
-      logo.classList.remove("App-logo-clockwise");
-      logo.classList.add("App-logo-anti-clockwise");
-    } else {
-      logo = document.querySelector(".App-logo-anti-clockwise");
-
-      logo.classList.remove("App-logo-anti-clockwise");
-      logo.classList.add("App-logo-clockwise");
-    }
-  }
+  // Add the toggleAnimation function here
 
   return (
     <BrowserRouter>
@@ -33,9 +20,7 @@ function App() {
                 <p>
                   Edit <code>src/App.js</code> and save to reload.
                 </p>
-                <button className="spin-btn" onClick={() => toggleAnimation()}>
-                  Toggle Spin Direction
-                </button>
+                {/* Insert the "Toggle Spin Direction" button below this comment */}
               </header>
             </div>
           }
