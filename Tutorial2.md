@@ -2,7 +2,7 @@
 
 ## Objective
 
-This tutorial and hands-on session aims to enable participants to use Docker as an integral part of the development process for a Node.js web application. The focus is on providing the skills necessary to compile, run, and manage code with Docker containers, highlighting Docker's role as a versatile development toolbox that enhances workflow consistency and efficiency.
+This tutorial and hands-on session aims to enable you to use Docker as an integral part of the development process for a Node.js web application. The focus is on providing the skills necessary to compile, run, and manage code with Docker containers, highlighting Docker's role as a versatile development toolbox that enhances workflow consistency and efficiency.
 
 ## Introduction
 
@@ -30,15 +30,17 @@ With a robust community, Node.js has become a staple in the technology stacks of
 
 ### Why Node.js and Docker
 
-The objective of this tutorial is to empower participants with the ability to integrate Docker effectively into the development process of a Node.js web application. Here's an overview of why Docker and Node.js are pivotal in this hands-on session:
+The objective of this tutorial is to empower you with the ability to integrate Docker effectively into the development process of a Node.js web application. Here's an overview of why Docker and Node.js are pivotal in this hands-on session:
 
-**Enhancing Development and Workflow Consistency:** Docker's role as a containerization platform is critical in establishing a consistent, efficient workflow. By focusing on Docker, participants learn to compile, run, and manage Node.js code with containers, ensuring that the development environment is replicable and consistent across any platform.
+**Enhancing Development and Workflow Consistency:** Docker's role as a containerization platform is critical in establishing a consistent, efficient workflow. By focusing on Docker, you learn to compile, run, and manage Node.js code with containers, ensuring that the development environment is replicable and consistent across any platform.
 
-**Practical Application in Course Projects:** While not mandatory, the skills acquired in this session can greatly benefit participants in their course-related projects and assignments, especially if they choose to utilize Node.js and Docker.
+**Practical Application in Course Projects:** While not mandatory, the skills acquired in this session can greatly benefit you in the course-related projects and assignments, especially if they choose to utilize Node.js and Docker.
 
 **Leveraging Seamless Integration with Development Tools:** Docker's compatibility with a range of development tools, like Nodemon for Node.js, exemplifies its role in streamlining the development process. These tools automate and simplify tasks, enhancing the overall efficiency of developing, testing, and debugging Node.js applications.
 
-**Benefiting from Vast Community Support:** Both Docker and Node.js are supported by robust online communities. This vast network offers an abundance of resources, guidance, and shared knowledge, which participants can leverage for troubleshooting, learning best practices, and keeping up-to-date with the latest advancements in web development.
+**Benefiting from Vast Community Support:** Both Docker and Node.js are supported by robust online communities. This vast network offers an abundance of resources, guidance, and shared knowledge, which you can leverage for troubleshooting, learning best practices, and keeping up-to-date with the latest advancements in web development.
+
+> Generated with the help of ChatGPT
 
 ## Getting Ready
 
@@ -76,9 +78,11 @@ Here are some common terminologies used in Docker that you should familiarise yo
 | EXPOSE       | Indicates which ports the container listens on.                                                                                                                                   |
 | WORKDIR      | Sets the working directory for any `RUN`, `CMD`, `ENTRYPOINT`, `COPY`, and `ADD` instructions.                                                                                    |
 
+> A part of this table was generated with the help of ChatGPT
+
 ### Basic Structure
 
-- A Dockerfile is composed of a set of instructions, like `FROM`, `RUN`, `COPY`, `ENTRYPOINT`, etc.
+- A Dockerfile comprises a set of instructions, like `FROM`, `RUN`, `COPY`, `ENTRYPOINT`, etc.
 - Each instruction creates a layer in the Docker image.
 
 ### Sample Dockerfile
@@ -87,7 +91,7 @@ Here are some common terminologies used in Docker that you should familiarise yo
 
 ```
 # Use an official Node.js runtime as a parent image
-FROM node:18
+FROM node:20-alpine
 
 # Set the working directory in the container
 WORKDIR /app
@@ -124,8 +128,8 @@ CMD ["node", "app.js"]
     - `--name [name]`: Assign a name to the container.
     - `-p [host port]:[container port]`: Map a host port to a container port.
     - `-v [host directory]:[container directory]`: Mount a volume.
-  - Example: `docker run -d --name mynginx -p 8080:80 nginx`
-  - Explanation: This command runs an Nginx container in detached mode, names it mynginx, and maps port 8080 on the host to port 80 on the container.
+  - Example: `docker run -d --name my-app -p 3000:3000 my-node-app`
+  - Explanation: This command runs my-node-app in detached mode, names it my-app, and maps port 3000 on the host to port 3000 on the container.
 
 - `docker ps`
 
@@ -148,8 +152,8 @@ CMD ["node", "app.js"]
 
   - Purpose: Pulls an image from a registry.
   - No major flags commonly used.
-  - Example: `docker pull ubuntu`
-  - Explanation: Pulls the latest Ubuntu image from Docker Hub.
+  - Example: `docker pull node`
+  - Explanation: Pulls the latest Node.js image from Docker Hub.
 
 - `docker build`
 
@@ -157,8 +161,8 @@ CMD ["node", "app.js"]
   - Common Flags:
     - `-t [name]:[tag]`: Name and optionally a tag in the ‘name:tag’ format.
     - `--file [Dockerfile path]`: Specify the location of the Dockerfile.
-  - Example: `docker build -t myapp:1.0 .`
-  - Explanation: Builds an image from a Dockerfile in the current directory, tagging it as myapp:1.0.
+  - Example: `docker build -t my-node-app:1.0 .`
+  - Explanation: Builds an image from a Dockerfile in the current directory, tagging it as my-node-app:1.0.
 
 - `docker exec`
 
@@ -173,24 +177,24 @@ CMD ["node", "app.js"]
 
   - Purpose: Stop one or more running containers.
   - No major flags commonly used.
-  - Example: `docker stop mynginx`
-  - Explanation: Stops the container named mynginx.
+  - Example: `docker stop my-app`
+  - Explanation: Stops the container named my-app.
 
 - `docker rm`
 
   - Purpose: Remove one or more containers.
   - Common Flags:
     - `-f`: Force the removal of a running container.
-  - Example: `docker rm mynginx`
-  - Explanation: Removes the container named mynginx.
+  - Example: `docker rm my-app`
+  - Explanation: Removes the container named my-app.
 
 - `docker rmi`
 
   - Purpose: Remove one or more images.
   - Common Flags:
     - `-f`: Force removal of the image.
-  - Example: `docker rmi myapp:1.0`
-  - Explanation: Removes the image myapp:1.0.
+  - Example: `docker rmi my-node-app:1.0`
+  - Explanation: Removes the image my-node-app:1.0.
 
 - `docker logs`
 
@@ -198,8 +202,8 @@ CMD ["node", "app.js"]
   - Common Flags:
     - `--follow`: Follow log output.
     - `--tail [number]`: Number of lines to show from the end of the logs.
-    - Example: `docker logs --tail 100 mynginx`
-    - Explanation: Displays the last 100 lines of the log for the mynginx container.
+    - Example: `docker logs --tail 100 my-app`
+    - Explanation: Displays the last 100 lines of the log for the my-app container.
 
 - `docker network create`
 
@@ -220,8 +224,8 @@ CMD ["node", "app.js"]
 
 ### Getting Ready
 
-- Download or Clone the source code from [GitHub](github.com)
-- Open a command line/terminal window and go into the source code folder.
+- Download or Clone the source code from [GitHub](https://github.com/Jai2501/Tutorial2)
+- Open a command line/terminal window and navigate into the source code folder (`Tutorial2/demo-app`).
 
 ### The Dockerfile
 
@@ -232,7 +236,7 @@ The Dockerfile is currently empty. The aim of this hands-on is to teach you how 
 Add the following line to the Dockerfile:
 
 ```
-FROM node:18-alpine
+FROM node:20-alpine
 ```
 
 2. Next, we specify the working directory in the container.
@@ -286,7 +290,7 @@ CMD ["npm", "start"]
 Finally, the created Dockerfile should look like this:
 
 ```
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
@@ -307,7 +311,7 @@ Now that the Dockerfile is setup, we have a skeleton for the image of our app.
 
 Using the `docker build` command, we will now create an image of our app.
 
-1. Open a command line/terminal window and navigate to the root directory of the downloaded/cloned repo, where the Dockerfile is located.
+1. Open a command line/terminal window and navigate to the downloaded/cloned repo, and then into the `demo-app` directory where the Dockerfile is located.
 
 2. Run the following command:
 
@@ -352,13 +356,13 @@ macOS users:
 docker run --name my-app -p 3000:3000 -v $(pwd):/app -d tic3001-demo-app
 ```
 
-Command Line users:
+Windows Command Line users:
 
 ```
 docker run --name my-app -p 3000:3000 -v %cd%:/app -d tic3001-demo-app
 ```
 
-Powershell users:
+Windows Powershell users:
 
 ```
 docker run --name my-app -p 3000:3000 -v ${PWD}:/app -d tic3001-demo-app
@@ -405,13 +409,13 @@ function toggleAnimation() {
 docker stop my-app
 ```
 
-> Note: If you do not bind volumes, such changes can not be seen in real-time, and the containers have to be stopped and run again, making the process tedious.
+> Note: If you do not bind volumes, such changes can not be seen in real-time, and the containers have to be stopped and run again, making the process tedious. Please refer to the section on [Binding the Current Working Directory](#binding-the-current-working-directory)
 
-### Todo
+### Exercise
 
 1. Create a Dockerfile for demo-service based on the following inputs:
 
-- Parent image is `node:18-alpine`
+- Parent image is `node:20-alpine`
 - Working directory as `/app`
 - Service Port Number `3001`
 - Command to run service: `npm start`
@@ -428,12 +432,16 @@ docker stop my-app
 
 Docker Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services, which simplifies the process of managing and deploying multi-container applications.
 
+> Generated with the help of ChatGPT
+
 ### Key Concepts
 
 - **Services**: These are the containers in your application.
 - **Networks**: Define how the Docker daemon should handle networking between containers.
 - **Volumes**: Persistent data storage for your Docker containers.
 - **Build and Image Configuration**: How to build the Docker images for your services.
+
+> Generated with the help of ChatGPT
 
 ### Sample Docker Compose file
 
@@ -617,7 +625,7 @@ docker-compose up -d
 
 - Above, the flag `-d` runs all containers in detached mode.
 
-### Todo
+### Exercise
 
 1. Edit the `docker-compose.yml` file and add demo-service as a `sevice` in the file.
 
@@ -641,9 +649,11 @@ As we conclude this tutorial, it's clear that integrating Docker into the Node.j
 
 - **Simplified Collaboration and Distribution**: Sharing a project is as simple as sharing its Dockerfile and docker-compose file. This ease of distribution ensures that team members can replicate the exact development environment effortlessly, paving the way for seamless collaboration and consistency across teams.
 
+> Generated with the help of ChatGPT
+
 ## Where to go from here?
 
-You may learn more about the following with plenty of resources available over the internet:
+You may learn more about the following with plenty of resources available all over the internet:
 
 - Efficient Image Building
 - Resource Management
