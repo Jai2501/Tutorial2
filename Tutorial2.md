@@ -574,6 +574,8 @@ networks:
 
 ### Building the Images
 
+Open a command line/terminal window and navigate to the root directory of the `Tutorial2` repository that you've downloaded or cloned. This directory contains the `docker-compose.yml` file.
+
 Execute the command below to build all the services, networks, and volumes defined in your docker-compose.yml file. This process is efficient as it doesn't necessitate running individual build commands for each service.
 
 ```
