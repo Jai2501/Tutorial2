@@ -58,6 +58,8 @@ Here are some common terminologies used in Docker that you should familiarise yo
 | Docker Desktop   | A GUI tool that includes the Docker Daemon, Client, Docker Compose, Content Trust, Kubernetes, etc.                                                                     |
 | Docker Objects   | Images, containers, networks, volumes, plugins, etc.                                                                                                                    |
 
+> Referenced from CS3219 SE Toolbox - Containerization
+
 ## Dockerfile
 
 ### What is a Dockerfile?
