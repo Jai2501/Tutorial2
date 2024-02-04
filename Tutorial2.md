@@ -204,8 +204,8 @@ CMD ["node", "app.js"]
   - Common Flags:
     - `--follow`: Follow log output.
     - `--tail [number]`: Number of lines to show from the end of the logs.
-    - Example: `docker logs --tail 100 my-app`
-    - Explanation: Displays the last 100 lines of the log for the my-app container.
+  - Example: `docker logs --tail 100 my-app`
+  - Explanation: Displays the last 100 lines of the log for the my-app container.
 
 - `docker network create`
 
@@ -411,7 +411,7 @@ function toggleAnimation() {
 docker stop my-app
 ```
 
-> Note: If you do not bind volumes, such changes can not be seen in real-time, and the containers have to be stopped and run again, making the process tedious. Please refer to the section on [Binding the Current Working Directory](#binding-the-current-working-directory)
+> :warning: Note: If you do not bind volumes, such changes can not be seen in real-time, and the containers have to be stopped and run again, making the process tedious. Please refer to the section on [Binding the Current Working Directory](#binding-the-current-working-directory)
 
 ### Exercise
 
@@ -574,23 +574,31 @@ networks:
 
 ### Building the Images
 
-Using the following command, all the services (and networks, volumes) are built, without requiring to invoke and run commands one by one:
+Execute the command below to build all the services, networks, and volumes defined in your docker-compose.yml file. This process is efficient as it doesn't necessitate running individual build commands for each service.
 
 ```
 docker-compose build --no-cache
 ```
 
-- Above, the flag `--no-cache` forces docker to rebuild all images from scratch.
+- Above, the flag `--no-cache` forces docker to rebuild all images from scratch, ignoring any cached layers from previous builds.
 
 ### Running the Containers
 
-Using the following command, all the containers specified in the docker-compose file are ran:
+1. By executing the following command, all the services defined in the docker-compose.yml file are ran.
 
 ```
 docker-compose up -d
 ```
 
 - Above, the flag `-d` runs all containers in detached mode.
+
+2. Open your browser of choice and go to http://localhost:3000/ to interact with the React App.
+
+3. The running container can be stopped using the command:
+
+```
+docker-compose down
+```
 
 ### Exercise
 
